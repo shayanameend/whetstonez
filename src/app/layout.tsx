@@ -1,10 +1,11 @@
 import type { PropsWithChildren } from 'react';
 
-import { default as Link } from 'next/link';
 import { MoreHorizontalIcon } from 'lucide-react';
+import { default as Image } from 'next/image';
+import { default as Link } from 'next/link';
+
 import { cn } from '~/lib/utils';
 
-import './globals.css';
 import { Button } from '~/components/ui/button';
 import {
   Sheet,
@@ -14,6 +15,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '~/components/ui/sheet';
+
+import './globals.css';
+import { images } from '~/assets';
 
 type LinkType = {
   href: string;
@@ -29,14 +33,16 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         <header
           className={cn('py-8 px-2 flex flex-row justify-between items-center')}
         >
-          <h1
-            className={cn('text-3xl font-semibold uppercase tracking-tighter')}
-          >
-            Whetstonez
+          <h1 className={cn('')}>
+            <Image
+              className={cn('w-full h-full object-cover')}
+              src={images.logo.src}
+              alt={images.logo.alt}
+            />
           </h1>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant={'outline'} size={'icon'}>
+              <Button variant={'secondary'} size={'icon'}>
                 <MoreHorizontalIcon />
               </Button>
             </SheetTrigger>
