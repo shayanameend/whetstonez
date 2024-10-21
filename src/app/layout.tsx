@@ -24,14 +24,33 @@ type LinkType = {
   label: string;
 };
 
-const links: LinkType[] = [];
+const links: LinkType[] = [
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Services',
+    href: '/services',
+  },
+  {
+    label: 'About',
+    href: '/about',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
+  },
+];
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
       <body className={'antialiased'}>
         <header
-          className={cn('py-8 px-2 flex flex-row justify-between items-center')}
+          className={cn(
+            'mx-auto py-8 px-2 max-w-screen-2xl flex flex-row justify-between items-center',
+          )}
         >
           <h1 className={cn('')}>
             <Image
@@ -40,6 +59,17 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
               alt={images.logo.alt}
             />
           </h1>
+          {links.length > 0 && (
+            <nav className="px-12 pb-2 border-b">
+              <ul className={cn('flex flex-row gap-16')}>
+                {links.map(({ href, label }) => (
+                  <li className={cn('text-xl text-foreground/85')} key={label}>
+                    <Link href={href}>{label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant={'secondary'} size={'icon'}>

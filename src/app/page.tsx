@@ -12,9 +12,13 @@ export default function HomePage() {
           'py-12 px-4 h-[calc(100vh_-_5.5rem)] flex flex-col lg:flex-row gap-8',
         )}
       >
-        <article className={cn('h-1/2 flex flex-col gap-14')}>
+        <article
+          className={cn(
+            'pl-4 mx-auto max-w-screen-sm w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col gap-14 justify-center items-center',
+          )}
+        >
           <div className={cn('flex flex-col gap-8')}>
-            <h3 className={cn('text-4xl font-bold italic')}>
+            <h3 className={cn('text-4xl lg:text-6xl font-bold italic')}>
               Software Company -Award winning Company Jeddah
             </h3>
             <p className={cn('text-foreground/75 text-xl font-light')}>
@@ -33,9 +37,11 @@ export default function HomePage() {
             Ask for Quote
           </Button>
         </article>
-        <article className={cn('h-1/2 flex flex-col gap-14')}>
+        <article
+          className={cn('w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col gap-14')}
+        >
           <Image
-            className={cn('w-full h-full object-cover')}
+            className={cn('w-full h-full object-contain')}
             src={images.hero.src}
             alt={images.hero.alt}
           />
