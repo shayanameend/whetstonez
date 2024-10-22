@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <body className={'antialiased'}>
         <header
           className={cn(
-            'mx-auto py-8 px-2 max-w-screen-2xl flex flex-row justify-between items-center',
+            'mx-auto py-8 px-6 max-w-screen-2xl flex flex-row justify-between items-center',
           )}
         >
           <h1 className={cn('')}>
